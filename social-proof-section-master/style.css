@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body {
+    width: 100%;
+    height: 100%;
+}
+body {
+    font-size: 15px;
+    font-family: "Spartan", sans-serif;
+    background: url("images/bg-pattern-bottom-desktop.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+}
+
+
+/*Header*/
+header {
+    margin: 0 165px;
+    margin-top: 127px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 120px;
+    color: #521b52;
+
+}
+header h1 {
+    font-size: 2.3rem;
+}
+
+.main-heading p {margin-top: 20px; line-height: 1.7;}
+
+
+.stars {
+    justify-self: end;
+    position: relative;
+    animation: Fade 0.6s ease;
+}
+.star {
+    height: 50px;
+    width: 450px;
+    background-color: hsl(300, 24%, 96%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+
+}
+.star:nth-child(1) {transform: translateX(200px);animation: Zvezde 0.8s ease forwards;}
+.star:nth-child(2) {transform: translateX(200px);animation: Zvezde 0.8s ease 50ms forwards;}
+.star:nth-child(3) {transform: translateX(200px);animation: Zvezde 0.8s ease 100ms forwards;}
+.star-holder {
+    padding: 0px 30px;
+
+}
+
+.guru h3{
+    padding-right: 20px;
+}
+
+.guru {
+    position: relative;
+    right: 40px;
+}
+.rev {
+    position: relative;
+    right: 80px;
+    margin: 0;
+}
+.tech {
+    position: relative;
+    right: 0px;
+}
+@keyframes Fade {
+    0% {opacity: 0.3;}
+    100% {opacity: 1;}
+}
+@keyframes Zvezde {
+    0% {transform: translateX(200px);}
+    100% {transform:  translateX(0px);}
+}
+
+@media screen and (max-width: 1440px) {
+    header {
+        grid-template-columns: 1fr;
+        text-align: center;
+        margin: 80px 10px 0px 10px;
+    }
+    header p {width: 355px; margin: 0 auto;}
+    .stars {
+        justify-self: center;
+    }
+    .star {flex-direction: column; padding: 10px 0px 15px 0px; height: auto; width: 350px;}
+
+    .guru,.rev,.tech {
+        right: 0px;
+    }
+    p br {display: none;}
+
+}
+@media screen and (max-width: 500px) {
+    .main-heading p br {display: none;}
+}
+
+/*Main Cards*/
+.cards {
+    margin: 0 165px;
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(355px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    transform: translateY(200px);
+    opacity: 0;
+    animation: Karte 1.2s ease 0.8s forwards;
+}
+.card {
+    width: 355px;
+    background-color: #521b52;
+    padding: 40px 30px;
+    border-radius: 10px;
+    transition: transform 0.3s ease,
+            background-color 0.8s ease;
+}
+
+.card img {
+    width: 38px;
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+    top: -2px;
+}
+.card:hover {transform: scale(1.1); background-color: #4364c7;}
+.card:hover .desc {color: black;}
+.head {
+    display: flex;
+}
+.cards p {
+    margin-top: 20px;
+    color: white;
+    transition: color 0.8s ease;
+}
+.card:nth-child(2) {position: relative; top: 20px;}
+.card:nth-child(3) {position: relative; top: 40px;}
+
+.name{color: white;font-weight: 500;}
+.desc  {color: #9d5388; font-weight: 400;}
+
+@keyframes Karte {
+    0% {
+        opacity: 0.5;
+        transform: translateY(200px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+
+
+@media screen and (min-width: 1441px) and (max-width: 1471px) {
+    .card:last-child {
+        grid-column: 1 / span 2;
+        justify-content: center;
+    }
+    .card:nth-child(2) {position: relative; top: 0px;}
+    .card:nth-child(3) {position: relative; top: 0px;}
+
+}
+
+@media screen and (max-width: 1440px) {
+    .cards {
+        grid-template-columns: 1fr;
+        margin: 50px 10px 0px 10px;
+        padding-bottom: 100px;
+  
+    }
+    .star-holder{padding: 5px 30px;}
+    .guru,.rev,.tech {
+        right: 0px;
+    }
+
+}
